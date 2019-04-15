@@ -1,12 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+//import the react and reactDOM
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//create a react component
+const App = () => {
+  return (
+    <div>
+      <div>{element}</div>
+      <div>
+        Hi there <Welcome name="hung" />
+      </div>
+    </div>
+  );
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+export default function Welcome(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+const user = {
+  name: "Bob",
+  tasks: ["learn React", "learn JSX"]
+};
+//style in JSX must be an object
+const style = {
+  backgroundColor: "#f2f2f2"
+};
+
+const element = (
+  //I'm a comment outside of JSX
+  // you can pass any props to an element using {}
+  <div style={style}>
+    {/*I'm inside JSX now*/}
+    {/*A comment is a Javascript expression*/}
+
+    {/*we evaluate 'user.name' and the number of tasks*/}
+    <h1>
+      {" "}
+      Welcome {user.name} you have {user.tasks.length} tasks.
+    </h1>
+
+    {/*only literal strings don't need to be inside {} , but they can be*/}
+  </div>
+);
+//take the react component and show it on screen
+ReactDOM.render(<App />, document.getElementById("root"));
