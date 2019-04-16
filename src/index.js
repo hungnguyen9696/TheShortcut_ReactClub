@@ -42,5 +42,30 @@ const element = (
     {/*only literal strings don't need to be inside {} , but they can be*/}
   </div>
 );
+
+class Greeting extends React.Component {
+  constructor(props) {
+    super(props);
+    // Define your state object here
+    this.state = {
+      name: "Jane Doe",
+      age: 20
+    };
+  }
+
+  handleOnClick = () => {
+    this.setState({ name: "hung", age: 22 });
+  };
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleOnClick}>Click here </button>
+        <h1>
+          {this.state.name} is {this.state.age} years old
+        </h1>
+      </div>
+    );
+  }
+}
 //take the react component and show it on screen
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Greeting />, document.getElementById("root"));
